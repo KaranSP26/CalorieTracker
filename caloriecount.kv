@@ -1,0 +1,106 @@
+#:kivy 1.0.9
+
+WindowManager:
+    UserChoice:
+        name: "userchoice"
+
+        GridLayout:
+            rows: 3
+            #orientation: "vertical"
+
+            Label:
+                text: "CALORIE TRACKING APP"
+                font_size: "30dp"
+            Button:
+                text: "user details"
+                #size_hint: 0.5, 1
+                #pos_hint: {"x":0.25, "y":0}
+                on_release: app.root.current = "info"
+
+            Button:
+                text: "food you ate"
+                #size_hint: 0.5, 1
+                #pos_hint: {"x":0.25, "y":0}
+                on_release: app.root.current = "Cuisine"
+
+    UserInfo:
+        name: "info"
+        u_name: u_name
+        age: age
+        cals: cals
+
+        GridLayout:
+            #orientation: 'vertical'
+            cols: 2
+            Label:
+                text: "Name:"
+            TextInput:
+                id: u_name
+
+            Label:
+                text: "Age:"
+            TextInput:
+                id: age
+
+            Label:
+                text: "Calories in a Day:"
+            TextInput:
+                id: cals
+
+            Button:
+                text: "back"
+                size_hint: 0.25, 0.25
+                on_release: app.root.current = "userchoice"
+
+            Button:
+                text: "submit"
+                size_hint: 0.25, 0.25
+                on_release: app.root.current = "userchoice"
+
+    Cuisine:
+        name: "Cuisine"
+
+        BoxLayout:
+
+            orientation: "vertical"
+            Label:
+                text: "Which type of food did you eat?"
+                size_hint: 1, 1
+            Button:
+                text: "Indian"
+                on_release: app.root.current = "CalCount"
+            Button:
+                text: "Asian"
+                on_release: app.root.current = "cal"
+            Button:
+                text: "American"
+                on_release: app.root.current = "cal"
+            Button:
+                text: "European"
+                on_release: app.root.current = "cal"
+            Button:
+                text: "Processed"
+                on_release: app.root.current = "cal"
+            Button:
+                text: "Back"
+                size_hint: 0.25, 0.25
+                on_release: app.root.current = "userchoice"
+
+    CalCount:
+        name: "cal"
+        GridLayout:
+            cols: 2
+
+            Label:
+                text: "Food Item:"
+            TextInput:
+                id: food
+            Label:
+                text: "Calories per 100g"
+            TextInput:
+                id: cals
+            Button:
+                text: "Submit"
+                ize_hint: 0.25, 0.25
+                on_release: app.root.current = "userchoice"
+
